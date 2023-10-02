@@ -1,0 +1,71 @@
+<!doctype html>
+<html> 
+<head>
+<center>
+<title> Register Form</title>
+</head>
+<form align ="center" action="Attendance.php" method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      </div>
+	  
+	  <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+	
+	<div class="row">
+      <div class="col-25">
+        <label for="Email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Email" name="Email" placeholder="example@email.com">
+      </div>
+    </div>
+	
+	
+    </div>
+	  <div class="row">
+      <div class="col-25">
+        <label for="Password"> New Password</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Password" name="password" placeholder="New Password..">
+      </div>
+	  
+	  
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="Course">Course</label>
+      </div>
+      <div class="col-75">
+        <select id="Course" name="Course">
+		  <option value="Choose Course">Choose Course</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Business Analyst">Business Analyst</option>
+		  <option value="Data Engineering">Data Engineering</option>
+          </select>
+      </div>
+    </div>
+    
+	<p>What is your Gender?</p>
+<input type="radio" name="Gender" value="male"> Male
+<input type="radio" name="Gender" value="female"> Female
+<input type="radio" name="Gender" value="other"> Other
+
+<br><br><div class="row">
+  <input type="submit" value="Submit">
+</div>
+
+  </form>
+  </center>
+  </html>\

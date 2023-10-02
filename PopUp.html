@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PopUp</title>
+        <style>
+/* .popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+ /* background-color: #e8952f;
+ 
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZA10mfM8dYOTn_R8j7109Rcq_ZrKyvMiRnQ&usqp=CAU");
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid white;
+  width: 80%;
+}*/
+    .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZA10mfM8dYOTn_R8j7109Rcq_ZrKyvMiRnQ&usqp=CAU') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(5px); /* Apply a blur effect */
+            width: 100%; /* Adjust the width as needed */
+        }
+        
+        /* Add CSS styles for the content inside the popup */
+        .popup-content {
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for content */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+    </style> 
+    </head> 
+    <body>
+		<div id="popup" class="popup">
+			<div class="popup-content">
+      
+			  <button id="close" onclick="closePopup()">submit</button>
+			  <h2>Are you still attending?</h2>
+			  <p>This is popup number <span id="counter">0</span>.</p>
+			  <p>Time left: <span id="timer">60</span> seconds</p>
+			</div>
+		  </div>
+			
+    <!--JAVASCRIPT-->
+    <script>
+      
+	  let counter = 0;
+      let timerInterval;
+	  var button_ = document.getElementById('close');
+	  const maxCount = 4;
+	  //var y = Math.floor(Math.random() * 5000) + 2000;  RANDOM POPUP
+
+      /*function openPopup() {
+        document.getElementById("popup").style.display = "block";
+        updateCounter();
+        startTimer();
+        }*/
+
+		
+        function openPopup() {
+			if (counter < maxCount) {
+           document.getElementById("popup").style.display = "block";
+           updateCounter();
+           startTimer();
+		   } else {
+          clearInterval(popupInterval);
+         }
+       
+        }
+		  // Show the pop-up four times at different random intervals
+      var intervalsToShowPopUp = 4;
+    var minInterval = 5000; // 5 seconds
+    var maxInterval = 30000; // 30 seconds
+
+    //function randomInterval() {
+      //  return Math.floor(Math.random() * (maxInterval - minInterval + 1)) + minInterval;
+    //}
+
+    //function showPopUpRandomly() {
+        //if (intervalsToShowPopUp > 0) {
+           // showPopUp();
+           // setTimeout(showPopUpRandomly, randomInterval());
+           // intervalsToShowPopUp--;
+       // }
+    //}
+
+    //showPopUpRandomly();
+		
+
+      function closePopup() {
+		
+        document.getElementById("popup").style.display = "none";
+        clearInterval(timerInterval);
+	    
+	   //clearInterval(break);
+      }
+	//}
+
+      function updateCounter() {
+		//count++;
+		counter++;
+        //displayCount.innerHTML = counter;
+		document.getElementById("counter").textContent = counter;
+       }
+
+       function updateTimer(time) {
+         document.getElementById("timer").textContent = time;
+	   }
+       
+
+       function startTimer() {
+        let timeLeft = 60; // 5 minutes in seconds
+
+       updateTimer(timeLeft);
+
+       timerInterval = setInterval(function() {
+       timeLeft--;
+       updateTimer(timeLeft);
+
+       if (timeLeft <= 0 || button_ == true) {
+         closePopup();
+        }
+      }, 1000); // Update the timer every 1 second (1000 milliseconds)
+    }
+
+      const popupInterval = setInterval(function() {
+        openPopup();
+        }, 1 * 60 * 1000); // Show the popup every 5 minutes (5 * 60 * 1000 milliseconds) // random
+		//setTimeout(openPopup, y); random popUp
+		
+
+
+    </script>          
+    </body>   
+    </html>
